@@ -1,0 +1,72 @@
+/* =========================
+   🔰 BASE (fundação do site)
+========================= */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+
+/* =========================
+   🧱 COMPONENTES REUTILIZÁVEIS
+========================= */
+@import url('./components/navbar.css');
+@import url('./components/footer.css');
+
+/* =========================
+    ESTILOS GLOBAIS
+========================= */
+
+body {
+  font-family: var(--fonte-principal, Arial, sans-serif);
+  background-color: var(--cor-fundo, #1a1a1a);
+  color: var(--cor-texto, #ffffff);
+  line-height: 1.6;
+}
+
+/* Container padrão */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Botão padrão global */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--cor-principal);
+  color: white;
+  border-radius: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background: var(--cor-secundaria);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+/* Espaçamento padrão */
+section {
+  padding: 40px 20px;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
