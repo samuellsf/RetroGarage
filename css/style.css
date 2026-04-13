@@ -1,72 +1,106 @@
-/* =========================
-   🔰 BASE (fundação do site)
-========================= */
+/* BASE */
 @import url('./base/reset.css');
 @import url('./base/variables.css');
 
-/* =========================
-   🧱 COMPONENTES REUTILIZÁVEIS
-========================= */
+/* COMPONENTES */
 @import url('./components/navbar.css');
 @import url('./components/footer.css');
 
-/* =========================
-    ESTILOS GLOBAIS
-========================= */
-
 body {
-  font-family: var(--fonte-principal, Arial, sans-serif);
-  background-color: var(--cor-fundo, #1a1a1a);
+  font-family: var(--fonte-principal, 'Segoe UI', Roboto, sans-serif);
+  background-color: var(--cor-fundo, #000000);
   color: var(--cor-texto, #ffffff);
-  line-height: 1.6;
+  margin: 0;
 }
 
-/* Container padrão */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Botão Global */
+.btn {
+  padding: 12px 25px;
+  background-color: var(--cor-principal);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
 }
 
-/* Links */
+.btn:hover {
+  filter: brightness(1.2);
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
+/* NAVBAR RESPONSIVA */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
 
-/* Imagens */
-img {
-  max-width: 100%;
-  display: block;
+  .navbar nav {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #222;
+    padding: 10px 0;
+  }
+
+
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+  }
 }
 
-/* Botão padrão global */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--cor-principal);
-  color: white;
-  border-radius: 6px;
-  transition: 0.3s;
-  cursor: pointer;
+.menu-toggle {
+  display: none;
+  background: none;
   border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background: var(--cor-secundaria);
-}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; 
+  }
 
-/* Títulos */
-h1, h2, h3 {
-  font-weight: 600;
-}
+  .navbar {
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+  }
 
-/* Espaçamento padrão */
-section {
-  padding: 40px 20px;
-}
+  .navbar nav {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    z-index: 1000;
+    padding: 20px 0;
+  }
 
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
+  
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
 }
