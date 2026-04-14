@@ -1,24 +1,24 @@
-// js/modules/services/app.js
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.getElementById('searchIcon');
+    const menuBtn = document.getElementById('menuBtn');
 
-const inicializarMenu = () => {
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', (e) => {
-      
-      e.stopPropagation(); 
-      navMenu.classList.toggle('active');
+    searchIcon.addEventListener('click', () => {
+        const query = searchInput.value;
+        if(query) {
+            console.log(`Buscando por: ${query}`);
+          
+        }
     });
 
-   
-    document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-        navMenu.classList.remove('active');
-      }
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            searchIcon.click();
+        }
     });
-  }
-};
 
-
-window.onload = inicializarMenu;
+    menuBtn.addEventListener('click', () => {
+        console.log("Abrir menu lateral...");
+     
+    });
+});

@@ -1,133 +1,110 @@
-/* ===== BANNER ===== */
+/*READER*/
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4%;
+    background-color: #000;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    color: #ff0000;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo h1 span { color: #fff; }
+
+.search-bar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar i { color: #333; }
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.menu-hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+}
+
+/*BANNER*/
 .banner {
-  height: 100vh;
-  min-height: 600px; 
-  background: url('../../assets/icons/bugatti.png') center center / cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Overlay escuro para leitura */
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
-  z-index: 1;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-  padding: 0 20px;
-}
-
-/* ===== BUSCA ===== */
-.search-box {
-  margin-top: 25px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.search-box input {
-  padding: 12px 20px;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: none;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-/* ===== CATEGORIAS SOBREPOSTAS ===== */
-.categorias-overlay {
-  position: absolute;
-  bottom: 20px; 
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  z-index: 3;
-  width: 90%;
-  justify-content: center;
-}
-
-.categoria-card {
-  background: rgba(34, 34, 34, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  color: white;
-  text-align: center;
-  flex: 1;
-  max-width: 180px;
-  transition: 0.3s;
-  border: 1px solid rgba(223, 23, 23, 0.1);
-}
-
-.categoria-card:hover {
-  transform: translateY(-10px);
-  background: var(--cor-principal);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
-
-/* RESPONSIVIDADE PARA CEL MEDIOS */
-
-@media (max-width: 850px) {
-  .banner {
-    height: 65vh; 
-    background-position: 70% center; 
-  }
-
-  .categorias-overlay {
-    position: relative; 
-    bottom: 0;
-    transform: none;
-    left: 0;
-    margin: -50px auto 20px; 
-    flex-wrap: wrap;
-    padding: 0 15px;
-    gap: 10px;
-  }
-
-  .categoria-card {
-    min-width: 140px;
-    flex: 1 1 40%; 
-  }
-}
-/* RESPONSIVIDADE PARA TELAS PEQUENAS */
-
-@media (max-width: 480px) {
-  .banner {
-    height: 50vh; 
-    min-height: 300px;
-    padding: 40px 10px;
-  }
-
-  .categorias-overlay {
-    position: relative; 
-    display: grid;
-    grid-template-columns: 1fr; 
-    width: 90%;
-    margin: 20px auto; 
-    left: 0;
-    transform: none;
-    bottom: 0;
-    z-index: 1; 
-  }
-
-  .categoria-card {
-    background: #222; 
-    border: 1px solid var(--cor-principal);
-  }
+    width: 100%;
+    height: 100vh;
+    min-height: 600px; 
   
-
-  .navbar nav.active {
-    display: flex !important;
-    z-index: 9999;
-  }
+    background: url('../../assets/icons/bugatti.png') center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+
+/* CARROSSEL */
+.carousel-container {
+    width: 100%;
+    height: calc(100vh - 70px); 
+    position: relative;
+  
+    background: transparent; 
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.next-btn { right: 0; }
+.prev-btn { left: 0; }
+

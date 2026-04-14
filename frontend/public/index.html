@@ -3,56 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>RetroGarage | Classic Cars</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages/index.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-  <header class="navbar">
-  <!-- <h2>RetroGarage comentado </h2> -->
+<header class="main-header">
+  <div class="logo">
+    <h1>Retro<span>Garage</span></h1>
+  </div>
   
-  <button class="menu-toggle" id="menu-toggle">
-    &#9776;
-  </button>
+  <div class="search-bar">
+    <input type="text" placeholder="Search">
+    <i class="fas fa-search"></i>
+  </div>
 
   <nav id="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="carros.html">Carros</a>
-    <a href="motos.html">Motos</a>
-    <a href="pecas.html">Peças</a>
-    <a href="pintura.html">Pintura</a>
-    <a href="carrinho.html">Carrinho</a>
+    <div class="nav-icons">
+      <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="login.html"><i class="far fa-user-circle"></i></a>
+      <div class="menu-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </nav>
 </header>
 
-  <main class="home">
-  <section class="banner">
+<main class="home">
+ <section class="banner">
     <div class="banner-content">
-      <h1>RetroGarage</h1>
-      <p>Clássicos que contam história</p>
+      <h2>Bem-vindo à RetroGarage</h2>
+    
+  </div>
+</section>
+</main>
 
-      <div class="search-box">
-        <input type="text" placeholder="Buscar carros, motos ou peças...">
-        <button class="btn">Buscar</button>
-      </div>
-    </div>
-  </section>
+<footer class="footer">
+  <p>© 2026 RetroGarage - Clássicos que Contam Histórias</p>
+</footer>
 
- <!-- comentado ate segunda ordem <div class="categorias-overlay">
-    <a href="carros.html" class="categoria-card"><h3>Carros</h3></a>
-    <a href="motos.html" class="categoria-card"><h3>Motos</h3></a>
-    <a href="pecas.html" class="categoria-card"><h3>Peças</h3></a>
-    <a href="pintura.html" class="categoria-card"><h3>Pintura</h3></a>
-  </div>-->
-</main> 
+<script src="js/index.js"></script>
 
-
-  <footer class="footer">
-    <p>© 2026 RetroGarage - Clássicos que Contam Histórias</p>
-  </footer>
-
-  <script type="module" src="js/modules/services/app.js"></script>
 </body>
 </html>
