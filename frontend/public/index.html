@@ -4,49 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RetroGarage | Classic Cars</title>
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
 <header class="main-header">
   <div class="logo">
     <h1>Retro<span>Garage</span></h1>
   </div>
-  
+
   <div class="search-bar">
     <input type="text" placeholder="Search">
     <i class="fas fa-search"></i>
   </div>
 
-  <nav id="nav-menu">
+  <div class="menu-toggle" id="menuBtn">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav id="nav-menu" class="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="carros.html">Carros</a></li>
+      <li><a href="motos.html">Motos</a></li>
+      <li><a href="pecas.html">Peças</a></li>
+      <li><a href="pintura.html">Pintura</a></li>
+    </ul>
+
     <div class="nav-icons">
-      <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="carrinho.html" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
       <a href="login.html"><i class="far fa-user-circle"></i></a>
-      <div class="menu-hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </nav>
+
 </header>
 
 <main class="home">
- <section class="banner">
+  <section class="banner">
     <div class="banner-content">
-      <h2>Bem-vindo à RetroGarage</h2>
-    
-  </div>
-</section>
+  
+    </div>
+  </section>
 </main>
 
+<!--
 <footer class="footer">
   <p>© 2026 RetroGarage - Clássicos que Contam Histórias</p>
 </footer>
+-->
+
 
 <script src="js/index.js"></script>
-
 </body>
 </html>

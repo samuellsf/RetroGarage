@@ -1,110 +1,177 @@
-/*READER*/
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER */
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 4%;
-    background-color: #000;
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4%;
+  background: #000;
+  height: 70px;
 }
 
+/* LOGO */
 .logo h1 {
-    color: #ff0000;
-    font-size: 24px;
-    font-weight: bold;
+  color: red;
+}
+.logo span {
+  color: #fff;
 }
 
-.logo h1 span { color: #fff; }
-
+/* SEARCH */
 .search-bar {
-    background: #fff;
-    border-radius: 20px;
-    padding: 5px 15px;
-    display: flex;
-    align-items: center;
-    width: 250px;
+  background: #201d1d;
+  border: 1px solid #333; 
+  border-radius: 25px;    
+  padding: 8px 20px;      
+  display: flex;
+  align-items: center;    
+  width: 280px;           
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /
 }
+
+
+.search-bar:hover, .search-bar:focus-within {
+  background: #2a2626;
+  border-color: #ff4d4d; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  width: 300px;          
+}
+
 
 .search-bar input {
-    border: none;
-    outline: none;
-    width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 10px;
+  width: 100%;
 }
 
-.search-bar i { color: #333; }
+/* MENU */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.nav-icons a:hover {
+    color: red;
+    transition: 0.3s;
+}
+
+
+.nav-menu ul li a:hover {
+    color: red;
+    border-bottom: 2px solid red;
+    padding-bottom: 5px;
+}
+
+.nav-menu.compact ul li a {
+  color: transparent;
+  position: relative;
+}
+
+.nav-menu.compact ul li a::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: white;
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* CARRINHO */
+.cart-icon {
+  position: relative;
+}
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
 
 .nav-icons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 25px; 
 }
-
-.menu-hamburger span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: #fff;
-    margin: 5px 0;
-}
-
-/*BANNER*/
+/* BANNER */
 .banner {
-    width: 100%;
-    height: 100vh;
-    min-height: 600px; 
-  
-    background: url('../../assets/icons/bugatti.png') center center / cover no-repeat;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  height: 100vh; 
+  width: 100%;
+ 
+  background: url('../../assets/icons/bugatti.png') center center / cover no-repeat;
+  background-attachment: scroll; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
 }
 
-/* CARROSSEL */
-.carousel-container {
-    width: 100%;
-    height: calc(100vh - 70px); 
-    position: relative;
-  
-    background: transparent; 
+.banner h2 {
+  color: #fff;
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
+/* RESPONSIVO */
+@media (max-width: 768px) {
 
-.slide {
-    min-width: 100%;
-    height: 100%;
-}
+  .menu-toggle {
+    display: block;
+  }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.prev-btn, .next-btn {
+  .nav-menu {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 20px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 10;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    transform: translateY(-200%);
+    transition: 0.3s;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+  }
+
+  .search-bar {
+    display: none;
+  }
 }
-
-.next-btn { right: 0; }
-.prev-btn { left: 0; }
-
