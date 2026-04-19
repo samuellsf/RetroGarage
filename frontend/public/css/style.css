@@ -39,6 +39,45 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.nav-buttons a,
+.nav-buttons button {
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Home */
+.btn-home {
+  background: #222;
+  color: #fff;
+}
+
+.btn-home:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* Voltar */
+.btn-back {
+  background: #ff3c00;
+  color: #fff;
+}
+
+.btn-back:hover {
+  background: #cc2f00;
+  transform: scale(1.05);
+}
 
 @media (max-width: 768px) {
   .navbar {
