@@ -3,56 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetroGarage | Classic Cars</title>
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages/index.css">
-  
+  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-  <header class="navbar">
-  <!-- <h2>RetroGarage comentado </h2> -->
-  
-  <button class="menu-toggle" id="menu-toggle">
-    &#9776;
-  </button>
+<header class="main-header">
+  <div class="logo">
+    <h1>Retro<span>Garage</span></h1>
+  </div>
 
-  <nav id="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="carros.html">Carros</a>
-    <a href="motos.html">Motos</a>
-    <a href="pecas.html">Peças</a>
-    <a href="pintura.html">Pintura</a>
-    <a href="carrinho.html">Carrinho</a>
+  <div class="search-bar">
+    <input type="text" placeholder="Search">
+    <i class="fas fa-search"></i>
+  </div>
+
+  <div class="header-actions">
+    <div class="nav-icons">
+      <a href="carrinho.html" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+      <a href="login.html"><i class="far fa-user-circle"></i></a>
+    </div>
+
+    <div class="menu-toggle" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <nav id="nav-menu" class="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="carros.html">Carros</a></li>
+      <li><a href="motos.html">Motos</a></li>
+      <li><a href="pecas.html">Peças</a></li>
+      <li><a href="pintura.html">Pintura</a></li>
+    </ul>
   </nav>
 </header>
 
-  <main class="home">
-  <section class="banner">
-    <div class="banner-content">
-      <h1>RetroGarage</h1>
-      <p>Clássicos que contam história</p>
+<script src="js/modules/services/index.js"></script>
 
-      <div class="search-box">
-        <input type="text" placeholder="Buscar carros, motos ou peças...">
-        <button class="btn">Buscar</button>
+    <section class="hero-banner">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <!-- <span class="hero-tag">Coleção</span> -->
+          <h1>RetroGarage</h1>
+          <p>
+            Clássicos, restauração premium e peças selecionadas para apaixonados por máquinas atemporais.
+          </p>
+
+          <!-- <div class="hero-actions">
+            <a href="./carros.html" class="btn btn-primary">Explorar Carros</a>
+            <a href="./pecas.html" class="btn btn-secondary">Ver Peças</a>
+          </div> -->
+        </div>
+
+        <aside class="hero-showcase" aria-label="Destaques da coleção">
+          <div class="showcase-header">
+            <span>Destaques</span>
+            <div class="showcase-indicators">
+              <button class="indicator active" type="button" data-slide="0" aria-label="Mostrar carro 1"></button>
+              <button class="indicator" type="button" data-slide="1" aria-label="Mostrar carro 2"></button>
+              <button class="indicator" type="button" data-slide="2" aria-label="Mostrar carro 3"></button>
+            </div>
+          </div>
+
+          <div class="showcase-stage">
+            <img src="assets/icons/carro1.png" alt="Porsche clássico azul" class="showcase-image active">
+            <img src="assets/icons/Mercedes.png" alt="Mercedes clássica" class="showcase-image">
+            <img src="assets/icons/mercedez.png" alt="Carro clássico branco" class="showcase-image">
+          </div>
+
+          <div class="showcase-info">
+            <h3 id="showcase-title">Porsche 911</h3>
+            <p id="showcase-text">Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da história automotiva.</p>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
-
- <!-- comentado ate segunda ordem <div class="categorias-overlay">
-    <a href="carros.html" class="categoria-card"><h3>Carros</h3></a>
-    <a href="motos.html" class="categoria-card"><h3>Motos</h3></a>
-    <a href="pecas.html" class="categoria-card"><h3>Peças</h3></a>
-    <a href="pintura.html" class="categoria-card"><h3>Pintura</h3></a>
-  </div>-->
-</main> 
-
-
-  <footer class="footer">
-    <p>© 2026 RetroGarage - Clássicos que Contam Histórias</p>
-  </footer>
+    </section>
+  </main>
 
   <script type="module" src="js/modules/services/app.js"></script>
+  <script type="module" src="js/modules/services/heroCarousel.js"></script> 
 </body>
 </html>

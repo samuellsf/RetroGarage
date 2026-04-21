@@ -6,6 +6,13 @@
 @import url('./components/navbar.css');
 @import url('./components/footer.css');
 
+/* PÁGINAS */
+@import url('./pages/index.css');
+@import url('./pages/carrinho.css');
+@import url('./pages/carros.css');
+@import url('./pages/motos.css');
+@import url('./pages/pecas.css');
+@import url('./pages/pintura.css');
 body {
   font-family: var(--fonte-principal, 'Segoe UI', Roboto, sans-serif);
   background-color: var(--cor-fundo, #000000);
@@ -13,7 +20,6 @@ body {
   margin: 0;
 }
 
-/* Botão Global */
 .btn {
   padding: 12px 25px;
   background-color: var(--cor-principal);
@@ -33,7 +39,46 @@ a {
   text-decoration: none;
   color: inherit;
 }
-/* NAVBAR RESPONSIVA */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.nav-buttons a,
+.nav-buttons button {
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Home */
+.btn-home {
+  background: #222;
+  color: #fff;
+}
+
+.btn-home:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* Voltar */
+.btn-back {
+  background: #ff3c00;
+  color: #fff;
+}
+
+.btn-back:hover {
+  background: #cc2f00;
+  transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -60,14 +105,6 @@ a {
   }
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
 
 @media (max-width: 768px) {
   .menu-toggle {

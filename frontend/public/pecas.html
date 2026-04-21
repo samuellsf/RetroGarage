@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peças</title>
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- CSS da página -->
+  <link rel="stylesheet" href="css/pages/pecas.css">
+</head>
+<body>
+
+  <header>
+    <h1>🔧 Catálogo de Peças</h1>
+  </header>
+  
+  <nav class="nav-buttons">
+  <a href="index.html" class="btn-home">🏠 Home</a>
+  <button onclick="history.back()" class="btn-back">🔙 Voltar</button>
+</nav>
+
+  <main class="pecas-container">
+
+    <!-- CARD -->
+    <div class="peca-card">
+      <img src="assets/icons/motor.png" alt="Motor">
+      <h2>Motor</h2>
+      <p>Coração do veículo, responsável pela potência.</p>
+      <button>Ver mais</button>
+    </div>
+
+    <div class="peca-card">
+      <img src="assets/icons/freio.png" alt="Freios">
+      <h2>Freios</h2>
+      <p>Sistema essencial para segurança e controle.</p>
+      <button>Ver mais</button>
+    </div>
+
+    <div class="peca-card">
+      <img src="assets/icons/suspensao.png" alt="Suspensão">
+      <h2>Suspensão</h2>
+      <p>Conforto e estabilidade ao dirigir.</p>
+      <button>Ver mais</button>
+    </div>
+
+    <div class="peca-card">
+      <img src="assets/icons/bateria.png" alt="Bateria">
+      <h2>Bateria</h2>
+      <p>Fornece energia elétrica ao veículo.</p>
+      <button>Ver mais</button>
+    </div>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="pecaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script src="pecas.js"></script>
+
+</body>
+</html>
