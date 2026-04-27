@@ -5,11 +5,22 @@ const inicializarHeroShowcase = () => {
   const titulo = document.getElementById('showcase-title');
   const texto = document.getElementById('showcase-text');
 
+  const btnPrev = document.querySelector('.showcase-arrow.left');
+  const btnNext = document.querySelector('.showcase-arrow.right');
+
+  const showcaseStage = document.querySelector('.showcase-stage');
+  console.log('showcaseStage:', showcaseStage);
+
+  // Evita erro se o elemento não existir 
+  if (!showcaseStage) return;
+
+
+  // Dados do Slide 
   const slides = [
     {
       titulo: 'Porsche 911',
       texto: 'Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da história automotiva.',
-      imagem: 'assets/icons/carro1.png'
+      imagem: 'assets/icons/Porsche 911.webp'
     },
     {
       titulo: 'Ferrari 250 GT',
@@ -19,12 +30,12 @@ const inicializarHeroShowcase = () => {
     {
       titulo: 'Mercedes-Benz 300 SL',
       texto: 'Um ícone absoluto do design automotivo, combinando luxo, herança e imponência visual.',
-      imagem: 'assets/icons/Mercedes.png'
+      imagem: 'assets/icons/Mercedez-Bens 300 SL.webp'
     },
     {
     titulo: 'Ford Mustang 1969',
     texto: 'Design marcante, proporções musculosas e um símbolo icônico da performance americana clássica.',
-    imagem: 'assets/icons/carro1.png'
+    imagem: 'assets/icons/Ford Mustang 1965.webp'
   },
   {
     titulo: 'Chevrolet Camaro SS',
@@ -34,11 +45,14 @@ const inicializarHeroShowcase = () => {
   {
     titulo: 'Jaguar E-Type',
     texto: 'Linhas fluidas, elegância incomparável e uma estética que atravessa gerações com sofisticação.',
-    imagem: 'assets/icons/carro1.png'
+    imagem: 'assets/icons/Jaguar E-Type.webp'
+  },
+  {
+    titulo: 'Dodge Charger 1969',
+    texto: 'Potência visceral e design intimidador, representando o auge da performance americana com uma personalidade inconfundível.',
+    imagem: 'assets/icons/Dodge Charger 1969.webp'
   }
   ];
-
-  const showcaseStage = document.querySelector('.showcase-stage');
 
 // Criar imagens automaticamente
 slides.forEach((slide, index) => {
@@ -46,18 +60,31 @@ slides.forEach((slide, index) => {
 
   img.src = slide.imagem; 
   img.classList.add('showcase-image');
+
+  // evita piscada ao carregar
+img.style.opacity = '0';
+img.onload = () => {
+  img.style.opacity = '';
+};
+
   // fallback se a imagem falhar
 img.onerror = () => {
   img.src = 'assets/icons/carro1.png';
 };
 
-  if (index === 0) {
-    img.classList.add('active');
-  }
+// carregamento inteligente
+if (index === 0) {
+  img.loading = 'eager';
+  img.classList.add('active');
+} else {
+  img.loading = 'lazy';
+}
 
-  showcaseStage.appendChild(img);
+showcaseStage.appendChild(img);
 });
 
+
+// Indicadores
 slides.forEach((_, index) => {
   const button = document.createElement('button');
   button.classList.add('indicator');
@@ -82,6 +109,11 @@ const indicadores = document.querySelectorAll('.indicator');
   let indiceAtual = 0;
   let intervalo;
 
+ // Variáveis de swipe 
+  let startX = 0;
+  let endX = 0;
+
+  // Atualiza Slide
   const atualizarSlide = (indice) => {
     imagens.forEach((img, i) => {
       img.classList.toggle('active', i === indice);
@@ -96,14 +128,56 @@ const indicadores = document.querySelectorAll('.indicator');
     indiceAtual = indice;
   };
 
+  // Próximo
   const proximoSlide = () => {
     const proximo = (indiceAtual + 1) % slides.length;
     atualizarSlide(proximo);
   };
 
+  // Anterior
+  const slideAnterior = () => {
+    const anterior = (indiceAtual - 1 + slides.length) % slides.length;
+  atualizarSlide(anterior);
+};
+
+  //Autoplay
   const iniciarAutoplay = () => {
     clearInterval(intervalo);
     intervalo = setInterval(proximoSlide, 4500);
+  };
+
+  const pararAutoplay = () => {
+    clearInterval(intervalo);
+  };
+
+  // Botões
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      proximoSlide();
+      iniciarAutoplay();
+    });
+  }
+
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      slideAnterior();
+      iniciarAutoplay();
+    });
+  }
+
+  // Swipe Mobile
+  const handleSwipe = () => {
+    const diff = startX - endX;
+
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+      proximoSlide();
+    } else {
+      slideAnterior();
+    }
+
+    iniciarAutoplay();
   };
 
   // indicadores.forEach((botao, indice) => {
@@ -113,8 +187,31 @@ const indicadores = document.querySelectorAll('.indicator');
   //   });
   // });
 
+  // Inicia
   atualizarSlide(0);
   iniciarAutoplay();
+
+ const showcase = document.querySelector('.hero-showcase');
+
+if (showcase) {
+  // Hover (desktop)
+  showcase.addEventListener('mouseenter', pararAutoplay);
+  showcase.addEventListener('mouseleave', iniciarAutoplay);
+
+  // Swipe mobile
+  showcase.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+  showcase.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+  }
 };
 
-window.addEventListener('load', inicializarHeroShowcase);
+// Inicializa
+window.addEventListener('load', () => {
+  console.log('DOM 100% carregado');
+  inicializarHeroShowcase();
+});

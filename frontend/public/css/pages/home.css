@@ -158,8 +158,47 @@
   height: 280px;
   border-radius: 22px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  background: radial-gradient(circle at center, #1a1a1a, #0b0b0b);
   margin-bottom: 18px;
+}
+
+.showcase-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 253, 253, 0.45);
+  color: fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  z-index: 10;
+}
+
+/* Posição */
+.showcase-arrow.left {
+  left: 12px;
+}
+
+.showcase-arrow.right {
+  right: 12px;
+}
+
+/* Aparecer ao passar o mouse */
+.showcase-stage:hover .showcase-arrow {
+  opacity: 1;
+}
+/* Hover elegante */
+.showcase-arrow:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .showcase-image {
@@ -169,13 +208,16 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transform: scale(1.08);
+  transition: opacity 0.8s ease, transform 1.2s ease;
+  filter: brightness(0.92) contrast(1.05);
 }
 
 .showcase-image.active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.02);
+  filter: brightness(1) contrast(1.08);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
 }
 
 .showcase-info h3 {

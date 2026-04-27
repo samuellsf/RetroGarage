@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,33 @@
   <link rel="stylesheet" href="css/pages/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-<header class="main-header">
-  <div class="logo">
-    <h1>Retro<span>Garage</span></h1>
-  </div>
-  
-  <div class="search-bar">
-    <input type="text" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
-
-  <nav id="nav-menu">
-    <div class="nav-icons">
-      <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
-      <a href="login.html"><i class="far fa-user-circle"></i></a>
-      <div class="menu-hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <header class="main-header">
+    <div class="logo">
+      <h1>Retro<span>Garage</span></h1>
     </div>
-  </nav>
-</header>
 
-<main class="home">
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <nav id="nav-menu">
+      <div class="nav-icons">
+        <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.html"><i class="far fa-user-circle"></i></a>
+        <div class="menu-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="home">
     <section class="hero-banner">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
@@ -68,6 +70,8 @@
           </div>
 
           <div class="showcase-stage">
+            <button class="showcase-arrow left" aria-label="Anterior">&#10094;</button>
+            <button class="showcase-arrow right" aria-label="Próximo">&#10095;</button>
             <!-- <img src="assets/icons/carro1.png" alt="Porsche clássico azul" class="showcase-image active">
             <img src="assets/icons/Mercedes.png" alt="Mercedes clássica" class="showcase-image">
             <img src="assets/icons/mercedez.png" alt="Carro clássico branco" class="showcase-image">
@@ -79,7 +83,8 @@
 
           <div class="showcase-info">
             <h3 id="showcase-title">Porsche 911</h3>
-            <p id="showcase-text">Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da história automotiva.</p>
+            <p id="showcase-text">Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da
+              história automotiva.</p>
           </div>
         </aside>
       </div>
@@ -89,4 +94,5 @@
   <script type="module" src="js/modules/services/app.js"></script>
   <script type="module" src="js/modules/services/heroCarousel.js"></script>
 </body>
+
 </html>
