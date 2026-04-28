@@ -43,7 +43,6 @@ html, body {
   align-items: center;    
   width: 280px;           
   transition: all 0.3s ease;
-  /* Centraliza no meio */
   order: 2; 
   margin-left: auto;
   margin-right: auto;
