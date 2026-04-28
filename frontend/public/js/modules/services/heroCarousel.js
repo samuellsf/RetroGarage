@@ -20,37 +20,37 @@ const inicializarHeroShowcase = () => {
     {
       titulo: 'Porsche 911',
       texto: 'Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da história automotiva.',
-      imagem: 'assets/icons/Porsche 911.webp'
+      imagem: 'assets/icons/porsche-911.webp'
     },
     {
-      titulo: 'Ferrari 250 GT',
+      titulo: 'Ferrari 250 GTO',
       texto: 'Elegância italiana, proporções clássicas e um apelo visual que reforça o espírito exclusivo da coleção.',
       imagem: 'assets/icons/ferrari-250-gto.jpg'
     },
     {
       titulo: 'Mercedes-Benz 300 SL',
       texto: 'Um ícone absoluto do design automotivo, combinando luxo, herança e imponência visual.',
-      imagem: 'assets/icons/Mercedez-Bens 300 SL.webp'
+      imagem: 'assets/icons/mercedez-bens300sl.png'
     },
     {
     titulo: 'Ford Mustang 1969',
     texto: 'Design marcante, proporções musculosas e um símbolo icônico da performance americana clássica.',
-    imagem: 'assets/icons/Ford Mustang 1965.webp'
+    imagem: 'assets/icons/ford-mustang.png'
   },
   {
-    titulo: 'Chevrolet Camaro SS',
+    titulo: 'Chevrolet Camaro SS 1969',
     texto: 'Estilo agressivo, presença imponente e uma identidade forte que traduz potência e atitude.',
-    imagem: 'assets/icons/carro1.png'
+    imagem: 'assets/icons/chevrolet-camaro-1969.png'
   },
   {
     titulo: 'Jaguar E-Type',
     texto: 'Linhas fluidas, elegância incomparável e uma estética que atravessa gerações com sofisticação.',
-    imagem: 'assets/icons/Jaguar E-Type.webp'
+    imagem: 'assets/icons/jaguar-e-type.png'
   },
   {
     titulo: 'Dodge Charger 1969',
     texto: 'Potência visceral e design intimidador, representando o auge da performance americana com uma personalidade inconfundível.',
-    imagem: 'assets/icons/Dodge Charger 1969.webp'
+    imagem: 'assets/icons/dodge-charger-1969.png'
   }
   ];
 
