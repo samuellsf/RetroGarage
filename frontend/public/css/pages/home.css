@@ -116,6 +116,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+
+  
 }
 
 .showcase-header {
@@ -135,7 +137,7 @@
 
 .showcase-indicators {
   display: flex;
-  gap: 10px;
+  gap: 6px;
 }
 
 .indicator {
@@ -149,7 +151,8 @@
 }
 
 .indicator.active {
-  width: 28px;
+  width: 16px;
+   border-radius: 8px;
   background: #d6b36a;
 }
 
@@ -166,8 +169,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 253, 253, 0.45);
@@ -208,14 +211,14 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.08);
+  transform: scale(0.92);
   transition: opacity 0.8s ease, transform 1.2s ease;
   filter: brightness(0.92) contrast(1.05);
 }
 
 .showcase-image.active {
   opacity: 1;
-  transform: scale(1.02);
+  transform: scale(1.05);
   filter: brightness(1) contrast(1.08);
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
 }

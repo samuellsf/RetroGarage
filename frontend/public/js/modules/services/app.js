@@ -1,7 +1,7 @@
 // js/modules/services/app.js
 
 const inicializarMenu = () => {
-  const menuToggle = document.getElementById('menu-toggle');
+  const menuToggle = document.getElementById('menuBtn');
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
