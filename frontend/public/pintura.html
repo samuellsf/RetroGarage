@@ -1,72 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pintura Automotiva</title>
-
-  <!-- CSS global -->
-  <link rel="stylesheet" href="css/base/reset.css">
-  <link rel="stylesheet" href="css/base/variables.css">
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- CSS da página -->
-  <link rel="stylesheet" href="css/pages/pintura.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pintura de Elite | RetroGarage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/pintura.css">
 </head>
 <body>
 
-  <header>
-    <h1>🎨 Serviços de Pintura</h1>
-  </header>
-
-  <nav class="nav-buttons">
-  <a href="index.html" class="btn-home">🏠 Home</a>
-  <button onclick="history.back()" class="btn-back">🔙 Voltar</button>
+    <header class="header-premium">
+        <div class="logo">RETRO<span>GARAGE</span></div>
+     <nav>
+    <a href="index.html">Início</a>
+    <a href="#vitrine">Curadoria de Estilos</a>
+    <a href="#profissionais">Especialistas</a>
+    <a href="#agendamento">Agendamento</a> 
 </nav>
+    </header>
 
-  <main class="pintura-container">
 
-    <div class="pintura-card">
-      <img src="assets/icons/pintura-completa.png" alt="Pintura Completa">
-      <h2>Pintura Completa</h2>
-      <p>Renove totalmente a cor do seu veículo.</p>
-      <button>Ver mais</button>
+    
+    <section class="hero-pintura">
+        <div class="hero-content">
+            <h1>Artesania em Pintura Automotiva</h1>
+            <p>A excelência técnica aplicada à preservação da história automotiva.</p>
+        </div>
+    </section>
+
+   
+    <section id="vitrine" class="section-container vitrine-parallax">
+        <div class="overlay-dark"></div> 
+        
+        <div class="content-relative">
+            <h2 class="section-title">Acabamentos Exclusivos</h2>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Coleção Completa</button>
+                <button class="filter-btn" data-filter="Candy">Acabamento Candy</button>
+                <button class="filter-btn" data-filter="Fosco">Textura Acetinada</button>
+                <button class="filter-btn" data-filter="Metalizado">Pigmentação Metálica</button>
+            </div>
+
+            <div id="grid-vitrine" class="grid-vitrine">
+              
+            </div>
+
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="load-more" class="btn-load">Explorar Mais Estilos</button>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="profissionais" class="section-container bg-alt">
+        <h2 class="section-title">Mestres de Ofício</h2>
+        <div class="team-flex">
+            <div class="profile-card">
+                <img src="assets/icons/jaguar-e-type.png" alt="Especialista em Pintura">
+                <h3>Ricardo Silva</h3>
+                <span>Mestre em Pintura Eletrostática e Candy</span>
+                <p>Especialista com décadas dedicadas à perfeição estética de clássicos.</p>
+            </div>
+            <div class="profile-card">
+                <img src="assets/icons/porsche-911.webp" alt="Colorista Sênior">
+                <h3>Ana Oliveira</h3>
+                <span>Consultora de Colorimetria Avançada</span>
+                <p>Expert em desenvolvimento de fórmulas exclusivas e restauração de pigmentos históricos.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+<section id="agendamento" class="section-container">
+    <h2 class="section-title">Atendimento Personalizado</h2>
+    
+    <div class="contact-grid">
+      
+        <div class="contact-info">
+            <h3>Fale Conosco</h3>
+            <p><i class="fab fa-whatsapp"></i> (61) 90000-0000</p>
+            <p><i class="fas fa-phone"></i> (61) 0000-0000</p>
+            <p><i class="fab fa-instagram"></i> @retrogarage_oficina</p>
+            <p><i class="fas fa-map-marker-alt"></i> Setor de Oficinas, Ceilândia - DF</p>
+            
+            <hr style="border: 0.5px solid #333; margin: 30px 0;">
+            
+       
+            <h4 style="color: var(--gold); margin-bottom: 20px;">Agende uma Visita Técnica</h4>
+            <form id="form-agendamento" class="booking-form-compact">
+                <input type="text" placeholder="Seu Nome" required style="width: 100%; margin-bottom: 10px;">
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="date" required style="flex: 1;">
+                    <input type="time" required style="flex: 1;">
+                </div>
+                <input type="text" placeholder="Modelo do Veículo" required style="width: 100%; margin-bottom: 15px;">
+
+              <button type="submit" class="btn-agendar">Solicitar Agendamento</button></button>
+            </form>
+        </div>
+
+  
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
+</section>
 
-    <div class="pintura-card">
-      <img src="assets/icons/polimento.png" alt="Polimento">
-      <h2>Polimento</h2>
-      <p>Remoção de riscos e brilho intenso.</p>
-      <button>Ver mais</button>
-    </div>
+    <footer class="main-footer">
+        <p>&copy; 2026 RetroGarage - Onde a paixão encontra a perfeição.</p>
+    </footer>
 
-    <div class="pintura-card">
-      <img src="assets/icons/envelopamento.png" alt="Envelopamento">
-      <h2>Envelopamento</h2>
-      <p>Mude o visual sem pintura permanente.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="pintura-card">
-      <img src="assets/icons/retoco.png" alt="Retoque">
-      <h2>Retoque</h2>
-      <p>Correção de pequenos danos na pintura.</p>
-      <button>Ver mais</button>
-    </div>
-
-  </main>
-
-  <!-- MODAL -->
-  <div id="pinturaModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImg" src="" alt="">
-      <h2 id="modalTitle"></h2>
-      <p id="modalDesc"></p>
-    </div>
-  </div>
-
-  <script src="pintura.js"></script>
-
+   
+    <script type="module" src="js/modules/services/pintura.js"></script>
 </body>
 </html>
