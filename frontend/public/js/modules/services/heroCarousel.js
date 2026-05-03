@@ -49,11 +49,13 @@ const inicializarHeroShowcase = () => {
   },
   {
     titulo: 'Dodge Charger 1969',
-    texto: 'Potência visceral e design intimidador, representando o auge da performance americana com uma personalidade inconfundível.',
+    texto: 'Potência visceral e design intimidador, representando o auge da performance americana.',
     imagem: 'assets/icons/dodge-charger-1969.png'
   }
+
   ];
 
+  
 // Criar imagens automaticamente
 slides.forEach((slide, index) => {
   const img = document.createElement('img');
