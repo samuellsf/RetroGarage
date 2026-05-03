@@ -1,4 +1,49 @@
-/* ===== pintiura.js  ====== */
+/* ======= PINTURA.JS ======= */
+/* =====LÓGICA DO CARROSSEL DE CORES ===== */
+const destaquesCores = [
+    {
+        title: "Vermelho Candy",
+        text: "Profundidade excepcional com acabamento espelhado de alto brilho.",
+        image: "assets/icons/Vermelho-Candy.png"
+    },
+    {
+        title: "Preto Fosco Acetinado",
+        text: "Elegância discreta com textura suave e baixa reflexão de luz.",
+        image: "assets/icons/Preto-Fosco-Acetinado.png"
+    },
+    {
+        title: "Azul Metalizado",
+        text: "Partículas metálicas que ganham vida sob a luz solar direta.",
+        image: "assets/icons/Azul-Metalizado.png"
+    },
+    {
+        title: "Dourado Candy",
+        text: "Brilho intenso com um toque de luxo e sofisticação perfeiro pro seu dia-dia.",
+        image: "assets/icons/Dourado-Candy.png"
+    },
+    {
+        title: "Cinza Fosco Urbano",
+        text: "Visual moderno e agressivo com acabamento sem brilho.",
+        image: "assets/icons/Cinza-Fosco-Urbano.png"   
+    }
+];
+
+let corAtual = 0;
+
+function atualizarCarrosselPintura() {
+    const titleEl = document.getElementById('showcase-title');
+    const textEl = document.getElementById('showcase-text');
+    const stageEl = document.querySelector('.showcase-stage');
+
+    if (titleEl && textEl && stageEl) {
+        const item = destaquesCores[corAtual];
+        titleEl.innerText = item.title;
+        textEl.innerText = item.text;
+        stageEl.style.backgroundImage = `url(${item.image})`;
+    }
+}
+
+/* === VITRINE DE ESTILOS == */
 const todosEstilos = [];
 const categorias = ["Candy", "Fosco", "Metalizado"];
 const especificacoes = ["Brilho Profundo", "Acabamento Premium", "Pigmentação Especial", "Alta Resistência"];
@@ -13,6 +58,25 @@ for (let i = 1; i <= 100; i++) {
         imagem: `assets/img/pinturas/pintura-${(i % 4) + 1}.jpg` 
     });
 }
+
+/* ===== LÓGICA DO BOTÃO SUBIR AO TOPO ======= */
+const btnBackToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        btnBackToTop.classList.add('show');
+    } else {
+        btnBackToTop.classList.remove('show');
+    }
+});
+
+btnBackToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 
 let estilosFiltrados = [...todosEstilos];
 let batchAtual = 0;
@@ -50,69 +114,97 @@ function carregarLote() {
     batchAtual++;
 
     if (btnLoadMore) {
-        if (fim >= estilosFiltrados.length) {
-            btnLoadMore.style.display = 'none';
-        } else {
-            btnLoadMore.style.display = 'inline-block';
-        }
+        btnLoadMore.style.display = (fim >= estilosFiltrados.length) ? 'none' : 'inline-block';
     }
 }
+ 
 
-filtros.forEach(botao => {
-    botao.addEventListener('click', () => {
-        filtros.forEach(b => b.classList.remove('active'));
-        botao.classList.add('active');
-        const filtro = botao.getAttribute('data-filter');
-        if (grid) grid.innerHTML = '';
-        batchAtual = 0;
-        if (filtro === 'all') {
-            estilosFiltrados = [...todosEstilos];
-        } else {
-            estilosFiltrados = todosEstilos.filter(e => e.categoria === filtro);
-        }
-        carregarLote();
-    });
-});
-
-if (btnLoadMore) btnLoadMore.addEventListener('click', carregarLote);
-
-/* ===== LÓGICA DE AGENDAMENTO (WhatsApp) ======= */
+/* ====== EVENTOS E INICIALIZAÇÃO ====== */
 document.addEventListener('DOMContentLoaded', () => {
     carregarLote();
+    atualizarCarrosselPintura(); 
 
+    // Lógica das setas do carrossel
+    const btnLeft = document.querySelector('.showcase-arrow.left');
+    const btnRight = document.querySelector('.showcase-arrow.right');
+
+    if (btnLeft && btnRight) {
+        btnLeft.addEventListener('click', () => {
+            corAtual = (corAtual - 1 + destaquesCores.length) % destaquesCores.length;
+            atualizarCarrosselPintura();
+        });
+        btnRight.addEventListener('click', () => {
+            corAtual = (corAtual + 1) % destaquesCores.length;
+            atualizarCarrosselPintura();
+        });
+    }
+/* ===== LÓGICA DE AUTOMATIZAÇÃO ===== */
+    let autoPlayInterval;
+    const tempoTroca = 5000; 
+
+    function iniciarAutoPlay() {
+      
+        pararAutoPlay();
+        
+        autoPlayInterval = setInterval(() => {
+         
+            corAtual = (corAtual + 1) % destaquesCores.length;
+            atualizarCarrosselPintura();
+        }, tempoTroca);
+    }
+
+    function pararAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+
+    iniciarAutoPlay();
+
+  
+    if (btnLeft && btnRight) {
+        [btnLeft, btnRight].forEach(botao => {
+            botao.addEventListener('click', () => {
+                iniciarAutoPlay(); 
+            });
+        });
+    }
+
+    const showcaseContainer = document.querySelector('.hero-showcase');
+    if (showcaseContainer) {
+        showcaseContainer.addEventListener('mouseenter', pararAutoPlay);
+        showcaseContainer.addEventListener('mouseleave', iniciarAutoPlay);
+    }
+    // Filtros da Vitrine
+    filtros.forEach(botao => {
+        botao.addEventListener('click', () => {
+            filtros.forEach(b => b.classList.remove('active'));
+            botao.classList.add('active');
+            const filtro = botao.getAttribute('data-filter');
+            if (grid) grid.innerHTML = '';
+            batchAtual = 0;
+            estilosFiltrados = (filtro === 'all') ? [...todosEstilos] : todosEstilos.filter(e => e.categoria === filtro);
+            carregarLote();
+        });
+    });
+
+    if (btnLoadMore) btnLoadMore.addEventListener('click', carregarLote);
+
+    // Formulário de Agendamento
     const formAgendamento = document.getElementById('form-agendamento');
-    
     if (formAgendamento) {
         formAgendamento.addEventListener('submit', function(e) {
             e.preventDefault();
-
-   
             const inputs = this.querySelectorAll('input');
-            const nome = inputs[0].value;
-            const data = inputs[1].value;
-            const hora = inputs[2].value;
-            const veiculo = inputs[3].value;
-
-     
-            const dataFormatada = data.split('-').reverse().join('/');
-
-         
+            const dataFormatada = inputs[1].value.split('-').reverse().join('/');
             const mensagem = encodeURIComponent(
                 `🚗 *Solicitação de Agendamento - RetroGarage*\n\n` +
-                `👤 *Cliente:* ${nome}\n` +
+                `👤 *Cliente:* ${inputs[0].value}\n` +
                 `📅 *Data:* ${dataFormatada}\n` +
-                `⏰ *Horário:* ${hora}\n` +
-                `🚘 *Veículo:* ${veiculo}\n\n` +
+                `⏰ *Horário:* ${inputs[2].value}\n` +
+                `🚘 *Veículo:* ${inputs[3].value}\n\n` +
                 `Aguardo confirmação da disponibilidade!`
             );
-
-        
-            const fone = "5561900000000";
-            
-  
-            window.open(`https://wa.me/${fone}?text=${mensagem}`, '_blank');
-            
-        
+            window.open(`https://wa.me/5561900000000?text=${mensagem}`, '_blank');
             this.reset();
         });
     }
