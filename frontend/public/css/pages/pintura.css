@@ -1,4 +1,7 @@
 /* Pintura.css */
+html, body {
+    overflow-x: hidden;
+}
 :root {
     --gold: #e50909; 
     --dark: #0A0A0A;
@@ -183,14 +186,14 @@ body {
 .hero-banner {
     position: relative;
     min-height: 100vh;
-    display: flex;
+    display: grid;
     align-items: center;
-    padding: 100px 5% 50px;
+    padding: 25px 5% 50px;
 }
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.2fr 420px;
+    grid-template-columns: 3.5fr 450px;
     gap: 50px;
     align-items: center;
     width: 100%;
@@ -256,10 +259,11 @@ body {
 
 /* Contato */
 .contact-grid { 
+    position: relative;
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     gap: 40px; 
-    align-items: center;
+    align-items: start;
     background: var(--card-dark);
     padding: 40px;
     border-radius: 20px;
@@ -274,9 +278,59 @@ body {
   margin-right: 10px; 
   width: 20px; }
 
-.map-container { border-radius: 15px; 
-  overflow: hidden; 
-  border: 2px solid #333; }
+.map-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Título */
+.map-title {
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.map-card {
+    width: 100%;
+    max-width: 380px;
+    height: 230px;
+
+    background: rgba(20, 16, 14, 0.6);
+    backdrop-filter: blur(15px);
+
+    border-radius: 25px;
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.6),
+        0 0 0 rgba(229, 9, 9, 0);
+
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* MAPA */
+.map-card iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+.map-card:hover {
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow: 
+        0 25px 60px rgba(0,0,0,0.8),
+        0 0 25px rgba(229, 9, 9, 0.4); 
+}
+
 
 .btn-load {
     background: transparent;
@@ -525,6 +579,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
         margin: 0 auto;
     }
 
+    
     /* Seções e Títulos */
     .section-title {
         font-size: 1.3rem;
@@ -540,18 +595,18 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
     }
 
     /* Rodapé Principal */
-    .main-footer {
-        padding: 20px 5%; 
-        background: #000;
-        border-top: 1px solid #222;
-        text-align: center;
-    }
+   .main-footer {
+    padding: 20px 10px;
+    text-align: center;
 
-    .main-footer p {
-        font-size: 0.75rem;
-        color: #666;               
-        margin: 0;
-        letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-footer p {
+    text-align: center;
+    width: 100%;
     }
 }
 
@@ -566,7 +621,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
     }
 
     .btn-to-top {
-        bottom: 20px;
+        bottom: 2px;
         right: 5px;
         width: 30px;
         height: 30px;
@@ -575,58 +630,42 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 }
 
 @media (max-width: 380px) {
-    
+
     .contact-grid {
         padding: 15px !important;
         margin: 0 5px !important;
     }
 
-    .contact-info p {
-        font-size: 0.85rem !important;
-        display: flex;
-        align-items: flex-start;
-        word-break: break-word; 
+    .map-box {
+        width: 100%;
+        gap: 10px;
     }
 
-    .contact-info i {
-        min-width: 20px;
-        margin-top: 4px;
+    .map-title {
+        font-size: 1rem;
+        text-align: center;
     }
 
-    .contact-info h3 {
-        font-size: 1.2rem !important;
-    }
-
-    .booking-form-compact input {
-        padding: 8px !important;
-        font-size: 0.9rem !important;
-    }
-
-    .hero-content h1 {
-        font-size: 1.3rem !important;
-    }
-
-    .map-container {
-    max-width: 500px;
-    height: 350px; 
-    margin: 0 auto;  
-    border-radius: 15px; 
-    overflow: hidden; 
-    border: 2px solid #333;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 100% !important;
-    min-height: auto !important;
-}
-.map-container {
+    .map-card {
+        width: 100%;
         max-width: 100%;
-        height: 100px;
+        height: 160px; 
+        padding: 6px;
+        border-radius: 15px;
     }
-    .showcase-arrow {
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 0.8rem !important;
+
+    .map-card iframe {
+        border-radius: 10px;
+    }
+}
+@media (max-width: 328px) {
+
+    .map-title {
+        font-size: 0.9rem;
+    }
+
+    .map-card {
+        height: 140px;
+        padding: 5px;
     }
 }
