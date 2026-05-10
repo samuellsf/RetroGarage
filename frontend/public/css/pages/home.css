@@ -187,7 +187,7 @@
   z-index: 10;
 }
 
-/* Posição */
+
 .showcase-arrow.left {
   left: 12px;
 }
@@ -196,11 +196,11 @@
   right: 12px;
 }
 
-/* Aparecer ao passar o mouse */
+
 .showcase-stage:hover .showcase-arrow {
   opacity: 1;
 }
-/* Hover elegante */
+
 .showcase-arrow:hover {
   background: rgba(0, 0, 0, 0.75);
   transform: translateY(-50%) scale(1.08);
@@ -236,7 +236,7 @@
   line-height: 1.65;
   font-size: 0.98rem;
 }
-/* --- Ajustes para Tablet --- */
+
 @media (min-width: 981px) {
   .hero-container {
     padding-top: 100px;
@@ -265,57 +265,57 @@
   }
 }
 
-/* --- Ajustes para Mobile --- */
 @media (max-width: 640px) {
   .hero-banner {
+    height: 100vh;
     min-height: auto;
-    padding: 60px 0 32px;
-    overflow-x: hidden; 
+    padding-top: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden; 
   }
 
   .hero-container {
-    width: 90%; 
-    gap: 32px;
+    width: 92%; 
+    gap: 10px; 
+    padding: 0;
+  }
+
+  .logo h1 {
+    font-size: clamp(1.2rem, 6vw, 1.6rem) !important; 
+    white-space: nowrap !important; 
+    margin: 0 !important; 
+    letter-spacing: 1px !important;
   }
 
   .hero-content h1 {
-    font-size: clamp(2.2rem, 10vw, 3rem);
-    line-height: 1.1;
-  }
-
-  .hero-actions {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch; 
-    gap: 12px;
-  }
-
-  
-  .showcase-stage {
-    height: 180px; 
-    margin-bottom: 12px;
+    display: none; 
   }
 
   .hero-showcase {
-    padding: 16px;
+    padding: 10px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 320px; 
+    margin: 0 auto;
+    background: rgba(20, 16, 14, 0.8); 
+  }
+
+  .showcase-stage {
+    height: 140px; 
+    margin-bottom: 8px;
   }
 
   .showcase-info h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem; 
+    margin-bottom: 2px;
+    text-align: center; 
   }
 
   .showcase-info p {
-    font-size: 0.88rem;
-  }
-}
-@media (max-width: 380px) {
-  .showcase-stage {
-    height: 180px;
-  }
-
-  .hero-content h1 {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
   }
 }
