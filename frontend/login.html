@@ -1,27 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS da Pagina -->
-     <link rel="stylesheet" href="public/css/pages/login.css">
-
-    <!-- CSS Global -->
-    <link rel="stylesheet" href="public/css/style.css">
-
-    <title>Login</title>
-</head>
-<body>
-    <div class="page">
-    <h1 class="page-title">RetroGarage</h1>
-    <section class="container">
-        <p>Login</p>
-        <p>Email: <input type="email" name="login-email" id="login-email" claas="login-email"></p>
-        <p>senha: <input type="password" name="login-password" id="login-password" class="login-password"></p>
-        <a href="#"><p>Esqueci minha senha</p></a>
-        <a href="#"><p>Registrar-se</p></a>
-    </section>
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>FAÇA LOGIN RETROGARAGE</h2>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="********" required>
+            </div>
+            
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="remember"> Relembrar senha
+                </label>
+                <a href="#" class="forgot-password">Esqueci minha senha</a>
+            </div>
+            
+            <button type="submit" class="btn-login">LOGIN</button>
+            
+            <div class="footer-links">
+                <p>Não tem conta? <a href="#" id="go-to-register">Registrar</a></p>
+                <p><a href="#" id="already-logged">Já tenho login</a></p>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+</div>
+<script src="js/modules/services/login.js"></script>
+
+
+
+
+
+
+

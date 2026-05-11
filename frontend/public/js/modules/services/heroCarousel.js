@@ -30,7 +30,7 @@ const inicializarHeroShowcase = () => {
     {
       titulo: 'Mercedes-Benz 300 SL',
       texto: 'Um ícone absoluto do design automotivo, combinando luxo, herança e imponência visual.',
-      imagem: 'assets/icons/mercedez-bens300sl.png'
+      imagem: 'assets/icons/mercedes-benz300sl.png'
     },
     {
     titulo: 'Ford Mustang 1969',

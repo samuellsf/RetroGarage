@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages/index.css">
   <link rel="stylesheet" href="css/pages/home.css">
-  <link rel="stylesheet" href="css/pages/vrum.css">
+ 
+  <link rel="stylesheet" href="css/pages/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -26,13 +27,14 @@
   </div>
 
   <div class="header-actions">
-    <div class="nav-icons">
-      <a href="carrinho.html" class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-count">0</span>
-      </a>
-      <a href="login.html"><i class="far fa-user-circle"></i></a>
-    </div>
+
+<div class="nav-icons">
+  <a href="carrinho.html" class="cart-icon">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </a>
+  <a href="#" id="user-menu-btn"><i class="far fa-user-circle"></i></a>
+</div>
 
     <div class="menu-toggle" id="menuBtn">
       <i class="fas fa-bars"></i>
@@ -87,8 +89,74 @@
 
 </main>
 
-<script type="module" src="js/modules/services/app.js"></script>
-<script type="module" src="js/modules/services/heroCarousel.js"></script>
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
 
+        <div id="section-login" class="auth-section">
+            <h2>FAÇA LOGIN RETROGARAGE</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="login-pass" placeholder="********" required>
+                </div>
+                <div class="options">
+                    <label><input type="checkbox"> Manter conectado</label>
+                    <a href="#" id="link-forgot">Esqueci minha senha</a>
+                </div>
+                <button type="submit" class="btn-retro">LOGIN</button>
+                <div class="footer-links">
+                    <p>Não tem conta? <a href="#" id="link-register">Registrar</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div id="section-forgot" class="auth-section" style="display: none;">
+            <h2>RECUPERAR ACESSO</h2>
+            <p class="section-desc">Enviaremos um código para o seu e-mail.</p>
+            <form id="forgot-form">
+                <div class="input-group">
+                    <label>E-mail cadastrado</label>
+                    <input type="email" id="forgot-email" placeholder="seu@email.com" required>
+                </div>
+                <button type="submit" class="btn-retro">ENVIAR CÓDIGO</button>
+                <div class="footer-links">
+                    <p><a href="#" class="link-back-login">Voltar para o Login</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div id="section-register" class="auth-section" style="display: none;">
+            <h2>NOVO CADASTRO</h2>
+            <form id="register-form">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" placeholder="Seu nome" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Criar Senha</label>
+                    <input type="password" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn-retro">CRIAR CONTA</button>
+                <div class="footer-links">
+                    <p>Já tem login? <a href="#" class="link-back-login">Fazer Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  <script type="module" src="js/modules/services/app.js"></script>
+  <script type="module" src="js/modules/services/heroCarousel.js"></script>
+  <script type="module" src="js/modules/services/login.js"></script>
+  
 </body>
 </html>

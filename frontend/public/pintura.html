@@ -6,6 +6,7 @@
     <title>Pintura de Elite | RetroGarage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/pages/pintura.css">
+    <link rel="stylesheet" href="css/pages/login.css">
 
 </head>
 <body>
@@ -22,7 +23,6 @@
 
    <section class="hero-banner">
         <div class="hero-container">
-         
             <div class="hero-content">
                 <h1>Artesania em Pintura Automotiva</h1>
                 <p>A excelência técnica aplicada à preservação da história automotiva.</p>
@@ -46,7 +46,7 @@
         </p>
     </div>
 </aside>
-        </div>
+   </div>
     </section>
 
    
@@ -142,7 +142,74 @@
     </footer>
 
    
+ <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+
+            <div id="section-login" class="auth-section">
+                <h2>FAÇA LOGIN RETROGARAGE</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="login-email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="login-pass" placeholder="********" required>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox"> Manter conectado</label>
+                        <a href="#" id="link-forgot">Esqueci minha senha</a>
+                    </div>
+                    <button type="submit" class="btn-retro">LOGIN</button>
+                    <div class="footer-links">
+                        <p>Não tem conta? <a href="#" id="link-register">Registrar</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div id="section-forgot" class="auth-section" style="display: none;">
+                <h2>RECUPERAR ACESSO</h2>
+                <p style="text-align:center; color:#aaa; font-size:0.9rem;">Enviaremos um código para o seu e-mail.</p>
+                <form id="forgot-form">
+                    <div class="input-group">
+                        <label>E-mail cadastrado</label>
+                        <input type="email" id="forgot-email" placeholder="seu@email.com" required>
+                    </div>
+                    <button type="submit" class="btn-retro">ENVIAR CÓDIGO</button>
+                    <div class="footer-links">
+                        <p><a href="#" class="link-back-login">Voltar para o Login</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div id="section-register" class="auth-section" style="display: none;">
+                <h2>NOVO CADASTRO</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Criar Senha</label>
+                        <input type="password" placeholder="********" required>
+                    </div>
+                    <button type="submit" class="btn-retro">CRIAR CONTA</button>
+                    <div class="footer-links">
+                        <p>Já tem login? <a href="#" class="link-back-login">Fazer Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/modules/services/app.js"></script>
+    <script type="module" src="js/modules/services/login.js"></script>
     <script type="module" src="js/modules/services/pintura.js"></script>
-   
+       
 </body>
 </html>
