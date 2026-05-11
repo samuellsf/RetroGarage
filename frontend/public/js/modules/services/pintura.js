@@ -1,5 +1,4 @@
 /* ======= PINTURA.JS ======= */
-/* =====LÓGICA DO CARROSSEL DE CORES ===== */
 const destaquesCores = [
     {
         title: "Vermelho Candy",
