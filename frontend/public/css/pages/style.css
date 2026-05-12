@@ -1,0 +1,143 @@
+/* BASE */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+
+/* COMPONENTES */
+@import url('./components/navbar.css');
+@import url('./components/footer.css');
+
+/* PÁGINAS */
+@import url('./pages/index.css');
+@import url('./pages/carrinho.css');
+@import url('./pages/carros.css');
+@import url('./pages/motos.css');
+@import url('./pages/pecas.css');
+@import url('./pages/pintura.css');
+body {
+  font-family: var(--fonte-principal, 'Segoe UI', Roboto, sans-serif);
+  background-color: var(--cor-fundo, #000000);
+  color: var(--cor-texto, #ffffff);
+  margin: 0;
+}
+
+.btn {
+  padding: 12px 25px;
+  background-color: var(--cor-principal);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.nav-buttons a,
+.nav-buttons button {
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Home */
+.btn-home {
+  background: #222;
+  color: #fff;
+}
+
+.btn-home:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* Voltar */
+.btn-back {
+  background: #ff3c00;
+  color: #fff;
+}
+
+.btn-back:hover {
+  background: #cc2f00;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar nav {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #222;
+    padding: 10px 0;
+  }
+
+
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; 
+  }
+
+  .navbar {
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .navbar nav {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    z-index: 1000;
+    padding: 20px 0;
+  }
+
+  
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+}
