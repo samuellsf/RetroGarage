@@ -35,12 +35,28 @@ function atualizarCarrosselPintura() {
     const stageEl = document.querySelector('.showcase-stage');
 
     if (titleEl && textEl && stageEl) {
+      
+        titleEl.style.opacity = 0;
+        textEl.style.opacity = 0;
+        titleEl.style.transform = 'translateY(10px)';
+        textEl.style.transform = 'translateY(10px)';
+
         const item = destaquesCores[corAtual];
-        titleEl.innerText = item.title;
-        textEl.innerText = item.text;
-        stageEl.style.backgroundImage = `url(${item.image})`;
+
+       
+        setTimeout(() => {
+            titleEl.innerText = item.title;
+            textEl.innerText = item.text;
+            stageEl.style.backgroundImage = `url(${item.image})`;
+
+            titleEl.style.opacity = 1;
+            textEl.style.opacity = 1;
+            titleEl.style.transform = 'translateY(0)';
+            textEl.style.transform = 'translateY(0)';
+        }, 300);
     }
 }
+
 
 /* === VITRINE DE ESTILOS == */
 const todosEstilos = [];
