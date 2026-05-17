@@ -1,12 +1,7 @@
 import pool from './config/db.js';
+import app from './app.js';
 
-async function testDB() {
-  try {
-    const [rows] = await pool.query('SELECT 1');
-    console.log('Banco conectado!', rows);
-  } catch (err) {
-    console.error('Erro no banco:', err);
-  }
-}
 
-testDB();
+app.listen(3000, () => {
+  console.log('sv rodando na porta 3000')
+})

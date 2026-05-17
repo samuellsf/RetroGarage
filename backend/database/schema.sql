@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS retrogarage;
 USE retrogarage;
 
 
-CREATE TABLE categorias (
+CREATE TABLE  categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL UNIQUE
 );
@@ -10,12 +10,12 @@ CREATE TABLE categorias (
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(150) NOT NULL,
-    price DECIMAL(10,2), NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
     stock INT DEFAULT 0,
     image VARCHAR(255),
     category_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+    FOREIGN KEY (category_id) REFERENCES categorias(id)
 );
 
 CREATE TABLE users (
