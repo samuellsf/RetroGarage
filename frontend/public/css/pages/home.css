@@ -142,6 +142,45 @@
   gap: 6px;
 }
 
+.showcase-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+    height: 350px; 
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+
+.showcase-img {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain; 
+    transition: transform 0.5s ease; 
+}
+
+
+.showcase-img:hover {
+    transform: scale(1.05);
+}
+
+.showcase-arrow {
+    position: absolute;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--primary-color, #333);
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.showcase-arrow.left { left: 10px; }
+.showcase-arrow.right { right: 10px; }
+
 .indicator {
   width: 10px;
   height: 10px;

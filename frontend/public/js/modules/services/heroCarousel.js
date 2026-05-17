@@ -11,70 +11,70 @@ const inicializarHeroShowcase = () => {
   const showcaseStage = document.querySelector('.showcase-stage');
   console.log('showcaseStage:', showcaseStage);
 
-  // Evita erro se o elemento não existir 
+ 
   if (!showcaseStage) return;
 
 
-  // Dados do Slide 
+ 
   const slides = [
     {
       titulo: 'Porsche 911',
       texto: 'Linhas atemporais, presença esportiva e uma das silhuetas mais reconhecíveis da história automotiva.',
-      imagem: 'assets/icons/porsche-911.webp'
+      imagem: 'frontend/public/assets/icons/porsche-911.webp'
     },
     {
       titulo: 'Ferrari 250 GTO',
       texto: 'Elegância italiana, proporções clássicas e um apelo visual que reforça o espírito exclusivo da coleção.',
-      imagem: 'assets/icons/ferrari-250-gto.jpg'
+      imagem: 'frontend/public/assets/icons/ferrari-250-gto.jpg'
     },
     {
       titulo: 'Mercedes-Benz 300 SL',
       texto: 'Um ícone absoluto do design automotivo, combinando luxo, herança e imponência visual.',
-      imagem: 'assets/icons/mercedes-benz300sl.png'
+      imagem: 'frontend/public/assets/icons/mercedes-benz300sl.png'
     },
     {
     titulo: 'Ford Mustang 1969',
     texto: 'Design marcante, proporções musculosas e um símbolo icônico da performance americana clássica.',
-    imagem: 'assets/icons/ford-mustang.png'
+    imagem: 'frontend/public/assets/icons/ford-mustang.png'
   },
   {
     titulo: 'Chevrolet Camaro SS 1969',
     texto: 'Estilo agressivo, presença imponente e uma identidade forte que traduz potência e atitude.',
-    imagem: 'assets/icons/chevrolet-camaro-1969.png'
+    imagem: 'frontend/public/assets/icons/chevrolet-camaro-1969.png'
   },
   {
     titulo: 'Jaguar E-Type',
     texto: 'Linhas fluidas, elegância incomparável e uma estética que atravessa gerações com sofisticação.',
-    imagem: 'assets/icons/jaguar-e-type.png'
+    imagem: 'frontend/public/assets/icons/jaguar-e-type.png'
   },
   {
     titulo: 'Dodge Charger 1969',
     texto: 'Potência visceral e design intimidador, representando o auge da performance americana.',
-    imagem: 'assets/icons/dodge-charger-1969.png'
+    imagem: 'frontend/public/assets/icons/dodge-charger-1969.png'
   }
 
   ];
 
   
-// Criar imagens automaticamente
+
 slides.forEach((slide, index) => {
   const img = document.createElement('img');
 
   img.src = slide.imagem; 
   img.classList.add('showcase-image');
 
-  // evita piscada ao carregar
+  
 img.style.opacity = '0';
 img.onload = () => {
   img.style.opacity = '';
 };
 
-  // fallback se a imagem falhar
+  
 img.onerror = () => {
   img.src = 'assets/icons/carro1.png';
 };
 
-// carregamento inteligente
+
 if (index === 0) {
   img.loading = 'eager';
   img.classList.add('active');
@@ -86,7 +86,7 @@ showcaseStage.appendChild(img);
 });
 
 
-// Indicadores
+
 slides.forEach((_, index) => {
   const button = document.createElement('button');
   button.classList.add('indicator');
@@ -111,11 +111,11 @@ const indicadores = document.querySelectorAll('.indicator');
   let indiceAtual = 0;
   let intervalo;
 
- // Variáveis de swipe 
+ 
   let startX = 0;
   let endX = 0;
 
-  // Atualiza Slide
+ 
   const atualizarSlide = (indice) => {
     imagens.forEach((img, i) => {
       img.classList.toggle('active', i === indice);
@@ -130,19 +130,17 @@ const indicadores = document.querySelectorAll('.indicator');
     indiceAtual = indice;
   };
 
-  // Próximo
+  
   const proximoSlide = () => {
     const proximo = (indiceAtual + 1) % slides.length;
     atualizarSlide(proximo);
   };
-
-  // Anterior
   const slideAnterior = () => {
     const anterior = (indiceAtual - 1 + slides.length) % slides.length;
   atualizarSlide(anterior);
 };
 
-  //Autoplay
+  
   const iniciarAutoplay = () => {
     clearInterval(intervalo);
     intervalo = setInterval(proximoSlide, 4500);
@@ -152,7 +150,7 @@ const indicadores = document.querySelectorAll('.indicator');
     clearInterval(intervalo);
   };
 
-  // Botões
+
   if (btnNext) {
     btnNext.addEventListener('click', () => {
       proximoSlide();
@@ -167,7 +165,7 @@ const indicadores = document.querySelectorAll('.indicator');
     });
   }
 
-  // Swipe Mobile
+  
   const handleSwipe = () => {
     const diff = startX - endX;
 
@@ -196,11 +194,10 @@ const indicadores = document.querySelectorAll('.indicator');
  const showcase = document.querySelector('.hero-showcase');
 
 if (showcase) {
-  // Hover (desktop)
   showcase.addEventListener('mouseenter', pararAutoplay);
   showcase.addEventListener('mouseleave', iniciarAutoplay);
 
-  // Swipe mobile
+
   showcase.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
     });
@@ -212,7 +209,7 @@ if (showcase) {
   }
 };
 
-// Inicializa
+
 window.addEventListener('load', () => {
   console.log('DOM 100% carregado');
   inicializarHeroShowcase();

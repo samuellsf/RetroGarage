@@ -5,10 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RetroGarage | Classic Cars</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/pages/index.css">
-<link rel="stylesheet" href="css/pages/home.css">
-<link rel="stylesheet" href="css/pages/login.css">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://samuellsf.github.io/RetroGarage/">
+<meta property="og:title" content="RetroGarage | Classic Cars">
+<meta property="og:description" content="Especialistas em restauração e venda de veículos históricos.">
+<meta property="og:image" content="https://samuellsf.github.io/RetroGarage/frontend/public/assets/icons/bugatti.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://samuellsf.github.io/RetroGarage/">
+<meta property="twitter:title" content="RetroGarage | Classic Cars">
+<meta property="twitter:description" content="Especialistas em restauração e venda de veículos históricos.">
+<meta property="twitter:image" content="https://samuellsf.github.io/RetroGarage/frontend/public/assets/icons/bugatti.png"> 
+
+<link rel="stylesheet" href="frontend/public/css/pages/style.css">
+<link rel="stylesheet" href="frontend/public/css/pages/index.css">
+<link rel="stylesheet" href="frontend/public/css/pages/home.css">
+<link rel="stylesheet" href="frontend/public/css/pages/login.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -43,11 +58,12 @@
   <nav id="nav-menu" class="nav-menu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="carros.html">Carros</a></li>
-      <li><a href="motos.html">Motos</a></li>
-      <li><a href="pecas.html">Peças</a></li>
-      <li><a href="pintura.html">Pintura</a></li>
-    </ul>
+     <li><a href="frontend/public/carros.html">Carros</a></li>
+    <li><a href="frontend/public/motos.html">Motos</a></li>
+    <li><a href="frontend/public/pecas.html">Peças</a></li>
+    <li><a href="frontend/public/pintura.html">Pintura</a></li>
+  </ul>
+</nav>
   </nav>
 </header>
 
@@ -73,6 +89,8 @@
 
         <div class="showcase-stage">
           <button class="showcase-arrow left">&#10094;</button>
+          <img src="frontend/public/assets/icons/bugatti.png" alt="Bugatti" class="showcase-img">
+          <meta property="og:image" content="https://samuellsf.github.io/RetroGarage/frontend/public/assets/icons/bugatti.png">
           <button class="showcase-arrow right">&#10095;</button>
         </div>
 
@@ -153,9 +171,12 @@
     </div>
 </div>
 
-  <script type="module" src="js/modules/services/app.js"></script>
-  <script type="module" src="js/modules/services/heroCarousel.js"></script>
-  <script type="module" src="js/modules/services/login.js"></script>
+  
+<script type="module" src="frontend/public/js/modules/services/app.js"></script>
+<script type="module" src="frontend/public/js/modules/services/heroCarousel.js"></script>
+<script type="module" src="frontend/public/js/modules/services/login.js"></script>
+
+
   
 </body>
 </html>
