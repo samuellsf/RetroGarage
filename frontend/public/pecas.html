@@ -1,102 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peças</title>
-
-  <!-- CSS global -->
-  <link rel="stylesheet" href="css/base/reset.css">
-  <link rel="stylesheet" href="css/base/variables.css">
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- CSS da página -->
-  <link rel="stylesheet" href="css/pages/pecas.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peças Originais e Performance | RetroGarage</title>
+    <!-- CSS Global e Fontes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link para o CSS de pintura (para manter a mesma estética) -->
+    <link rel="stylesheet" href="css/pages/pecas.css"> 
+    <link rel="stylesheet" href="css/pages/login.css">
 </head>
 <body>
 
-  <header>
-    <h1>🔧 Catálogo de Peças</h1>
-  </header>
-  
-  <nav class="nav-buttons">
-  <a href="index.html" class="btn-home">🏠 Home</a>
-  <button onclick="history.back()" class="btn-back">🔙 Voltar</button>
-</nav>
+    <header class="header-premium">
+        <div class="logo">RETRO<span>GARAGE</span></div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="#vitrine">Catálogo</a>
+            <a href="#profissionais">Especialistas</a>
+            <a href="#agendamento">Consultoria</a>
+        </nav>
+    </header>
 
-  <main class="pecas-container">
+    <!-- Hero Banner adaptado para Peças -->
+    <section class="hero-banner">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Componentes de Alta Performance</h1>
+                <p>Peças genuínas e curadoria técnica para garantir a alma do seu clássico.</p>
+            </div>
 
-    <!-- CARD -->
-    <div class="peca-card">
-      <img src="assets/icons/escapamento.png" alt="Escapamento">
-      <h2>Escapamento</h2>
-      <p>Sistema responsável pela expulsão dos gases de escape.</p>
-      <button>Ver mais</button>
+            <aside class="hero-showcase">
+                <div class="showcase-header">
+                    <span>Destaques do Inventário</span>
+                    <div class="showcase-indicators"></div>
+                </div>
+
+                <div class="showcase-stage">
+                    <button class="showcase-arrow left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="showcase-arrow right"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="showcase-info"> 
+                    <h3 id="showcase-title">Motorização V8</h3>
+                    <p id="showcase-text">
+                        Componentes internos forjados para máxima durabilidade e potência.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Vitrine de Peças com Filtros -->
+    <section id="vitrine" class="section-container vitrine-parallax">
+        <div class="overlay-dark"></div> 
+        
+        <div class="content-relative">
+            <h2 class="section-title">Catálogo Especializado</h2>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Todas as Peças</button>
+                <button class="filter-btn" data-filter="Motor">Motor & Performance</button>
+                <button class="filter-btn" data-filter="Suspensao">Suspensão</button>
+                <button class="filter-btn" data-filter="Acabamento">Acabamento Interno</button>
+            </div>
+
+            <div id="grid-vitrine" class="grid-vitrine">
+                <!-- O conteúdo será injetado pelo pecas.js -->
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="load-more" class="btn-load">Explorar Catálogo Completo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialistas em Peças -->
+    <section id="profissionais" class="section-container bg-alt">
+        <h2 class="section-title">Consultoria Técnica</h2>
+        <div class="team-flex">
+            <div class="profile-card">
+                <img src="assets/icons/Marcos.png" alt="Especialista em Peças">
+                <h3>Marcos Prata</h3>
+                <span>Curador de Peças Históricas</span>
+                <p>Especialista em busca internacional de componentes raros e originais.</p>
+            </div>
+            <div class="profile-card">
+                <img src="assets/icons/Carlos.png" alt="Engenheiro Mecânico">
+                <h3>Carlos Ferro</h3>
+                <span>Técnico de Performance</span>
+                <p>Expert em sistemas de suspensão e upgrades de performance para veículos retrô.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Contato/Agendamento -->
+    <section id="agendamento" class="section-container">
+        <h2 class="section-title">Solicite uma Cotação</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Canais de Venda</h3>
+                <p><i class="fab fa-whatsapp"></i> (61) 90000-0000</p>
+                <p><i class="fas fa-phone"></i> (61) 0000-0000</p>
+                <p><i class="fab fa-instagram"></i> @retrogarage_pecas</p>
+                <p><i class="fas fa-map-marker-alt"></i> Setor de Oficinas, Ceilândia - DF</p>
+                
+                <hr style="border: 0.5px solid #333; margin: 30px 0;">
+                
+                <h4 style="color: var(--gold); margin-bottom: 20px;">Orçamento de Peças Específicas</h4>
+                <form id="form-agendamento" class="booking-form-compact">
+                    <input type="text" placeholder="Nome do Cliente" required style="width: 100%; margin-bottom: 10px;">
+                    <input type="text" placeholder="Peça solicitada (Ex: Carburador Weber 40)" required style="width: 100%; margin-bottom: 10px;">
+                    <input type="text" placeholder="Modelo e Ano do Carro" required style="width: 100%; margin-bottom: 15px;">
+
+                    <button type="submit" class="btn-agendar">Solicitar Atendimento</button>
+                </form>
+            </div>
+
+            <div class="map-box">
+                <h3 class="map-title">Nossa Central de Distribuição</h3>
+                <div class="map-card">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?..." 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTop" class="btn-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 RetroGarage - Onde a paixão encontra a perfeição.</p>
+    </footer>
+
+    <!-- Modais de Login (mantidos para funcionalidade) -->
+    <div id="login-modal" class="modal">
+        <!-- ... (Mesmo conteúdo do modal anterior) ... -->
     </div>
 
-    <div class="peca-card">
-      <img src="assets/icons/freio.png" alt="Freios">
-      <h2>Freios</h2>
-      <p>Sistema essencial para segurança e controle.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/amortecedor.jpg" alt="Amortecedores">
-      <h2>Amortecedores</h2>
-      <p>Conforto e estabilidade ao dirigir.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/bateria.jpg" alt="Bateria">
-      <h2>Bateria</h2>
-      <p>Fornece energia elétrica ao veículo.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/cárter.jpg" alt="Cárter de óleo">
-      <h2>Cárter de óleo</h2>
-      <p>Armazena e protege o óleo do motor.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/comando-valvulas.jpg" alt="Comando de válvulas">
-      <h2>Comando de válvulas</h2>
-      <p>Controla o abertura e fechamento das válvulas do motor.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/valvulas.jpg" alt="Válvulas de admissão e escape">
-      <h2>Válvulas de admissão e escape</h2>
-      <p>Controlam o fluxo de ar e combustível no motor.</p>
-      <button>Ver mais</button>
-    </div>
-
-    <div class="peca-card">
-      <img src="assets/icons/cárter.jpg" alt="Cárter de óleo">
-      <h2>Cárter de óleo</h2>
-      <p>Armazena e protege o óleo do motor.</p>
-      <button>Ver mais</button>
-    </div>
-
-  </main>
-
-  <!-- MODAL -->
-  <div id="pecaModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImg" src="" alt="">
-      <h2 id="modalTitle"></h2>
-      <p id="modalDesc"></p>
-    </div>
-  </div>
-
-  <script src="pecas.js"></script>
-  
-
+    <!-- Scripts -->
+    <script type="module" src="js/modules/services/app.js"></script>
+    <script type="module" src="js/modules/services/login.js"></script>
+    <script type="module" src="js/modules/services/pecas.js"></script>
 </body>
 </html>
