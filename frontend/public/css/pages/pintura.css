@@ -258,7 +258,7 @@ body {
 .showcase-arrow.right { right: 10px; }
 
 .showcase-stage {
-    transition: background-image 0.8s ease-in-out;
+    transition: background-image 0.8s ease-in-out, opacity 0.4s ease;
     background-size: cover;
     background-position: center;
 }
