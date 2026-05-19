@@ -1,4 +1,4 @@
-INSERT INTO categories (name) VALUES
+INSERT INTO categorias (name) VALUES
 ('carros'),
 ('motos'),
 ('pecas'),

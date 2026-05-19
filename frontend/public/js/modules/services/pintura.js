@@ -35,26 +35,188 @@ function atualizarCarrosselPintura() {
     const stageEl = document.querySelector('.showcase-stage');
 
     if (titleEl && textEl && stageEl) {
+       
+        textEl.style.opacity = 0;
+        stageEl.style.opacity = 0; 
+        titleEl.style.transform = 'translateY(10px)';
+        textEl.style.transform = 'translateY(10px)';
+
         const item = destaquesCores[corAtual];
-        titleEl.innerText = item.title;
-        textEl.innerText = item.text;
-        stageEl.style.backgroundImage = `url(${item.image})`;
+
+        setTimeout(() => {
+            titleEl.innerText = item.title;
+            textEl.innerText = item.text;
+            stageEl.style.backgroundImage = `url(${item.image})`;
+
+            titleEl.style.opacity = 1;
+            textEl.style.opacity = 1;
+            stageEl.style.opacity = 1; 
+            
+            titleEl.style.transform = 'translateY(0)';
+            textEl.style.transform = 'translateY(0)';
+        }, 400); 
     }
 }
 
+
 /* === VITRINE DE ESTILOS == */
 const todosEstilos = [];
-const categorias = ["Candy", "Fosco", "Metalizado"];
-const especificacoes = ["Brilho Profundo", "Acabamento Premium", "Pigmentação Especial", "Alta Resistência"];
+
+const categorias = [
+    "Candy",
+    "Fosco",
+    "Metalizado"
+];
+
+const especificacoes = [
+    "Brilho Profundo",
+    "Acabamento Premium",
+    "Pigmentação Especial",
+    "Alta Resistência"
+];
+
+// 100 cores diferentes
+const cores = [
+    "Vermelho Candy",
+    "Azul Royal",
+    "Preto Fosco",
+    "Prata Metálico",
+    "Verde Militar",
+    "Laranja Queimado",
+    "Amarelo Ouro",
+    "Azul Bebê",
+    "Branco Pérola",
+    "Cinza Chumbo",
+    "Roxo Neon",
+    "Verde Limão",
+    "Azul Tiffany",
+    "Cobre Metálico",
+    "Champagne",
+    "Grafite",
+    "Bordô",
+    "Turquesa",
+    "Rosa Pink",
+    "Dourado",
+    "Bronze",
+    "Verde Esmeralda",
+    "Azul Marinho",
+    "Preto Piano",
+    "Vermelho Ferrari",
+    "Prata Lunar",
+    "Cinza Nardo",
+    "Azul Elétrico",
+    "Laranja Candy",
+    "Vinho Metálico",
+    "Branco Gelo",
+    "Verde Oliva",
+    "Areia Fosca",
+    "Amarelo Neon",
+    "Roxo Candy",
+    "Azul Céu",
+    "Preto Carbon",
+    "Azul Safira",
+    "Verde Água",
+    "Cinza Titanium",
+    "Rosé Gold",
+    "Verde Neon",
+    "Marrom Café",
+    "Pérola Azul",
+    "Pérola Vermelha",
+    "Pérola Verde",
+    "Pérola Roxa",
+    "Pérola Dourada",
+    "Cinza Fosco",
+    "Azul Fosco",
+    "Laranja Neon",
+    "Rosa Candy",
+    "Branco Metálico",
+    "Azul Vintage",
+    "Verde Vintage",
+    "Vermelho Vintage",
+    "Creme Clássico",
+    "Marfim",
+    "Champagne Gold",
+    "Preto Ônix",
+    "Azul Oceano",
+    "Azul Turquesa",
+    "Verde Pistache",
+    "Cinza Lunar",
+    "Azul Midnight",
+    "Roxo Metálico",
+    "Verde Candy",
+    "Dourado Fosco",
+    "Bronze Fosco",
+    "Prata Fosca",
+    "Branco Satin",
+    "Azul Satin",
+    "Preto Satin",
+    "Verde Satin",
+    "Vermelho Satin",
+    "Laranja Satin",
+    "Púrpura",
+    "Magenta",
+    "Azul Gelo",
+    "Cinza Urbano",
+    "Verde Floresta",
+    "Amarelo Canário",
+    "Laranja Lava",
+    "Azul Plasma",
+    "Verde Radioativo",
+    "Preto Vulcano",
+    "Cinza Steel",
+    "Azul Polar",
+    "Branco Lunar",
+    "Prata Espelhado",
+    "Cobre Fosco",
+    "Rosa Metálico",
+    "Azul Celeste",
+    "Verde Jade",
+    "Azul Profundo",
+    "Preto Absoluto",
+    "Vermelho Sangue",
+    "Cinza Tempestade",
+    "Azul Relic",
+    "Verde Relic"
+];
+
+const modelos = [
+    "Mustang 1967",
+    "Chevrolet Bel Air",
+    "Cadillac Eldorado",
+    "Porsche 356",
+    "Volkswagen Fusca",
+    "Chevrolet Impala",
+    "Ford Maverick",
+    "Dodge Charger",
+    "Opala SS",
+    "Camaro 1969",
+    "Mercedes 300SL",
+    "Jaguar E-Type",
+    "Chevrolet Corvette",
+    "Ferrari Dino",
+    "Pontiac GTO",
+    "Buick Riviera",
+    "Lincoln Continental",
+    "Ford Galaxie",
+    "Chevrolet Fleetline",
+    "Kombi Clássica"
+    
+];
 
 for (let i = 1; i <= 100; i++) {
     const cat = categorias[i % categorias.length];
+    const cor = cores[i - 1];
+    const modelo = modelos[i % modelos.length];
+
     todosEstilos.push({
         id: i,
-        nome: `${cat} Estilo Premium #${i}`,
+        nome: `${modelo} ${cor}`,
         categoria: cat,
         spec: especificacoes[i % especificacoes.length],
-        imagem: `assets/img/pinturas/pintura-${(i % 4) + 1}.jpg` 
+        cor: cor,
+        modelo: modelo,
+       
+        imagem: `https://loremflickr.com/600/400/classic,car/all?lock=${i}`
     });
 }
 
