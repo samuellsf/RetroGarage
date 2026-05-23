@@ -1,12 +1,14 @@
 import express from 'express';
-import productRoutes from './modules/product/product.routes.js';
+import cors from 'cors';
+
+import routes from './routes/index.js';
+
 
 const app = express();
 
-// middleware para JSON
+app.use(cors());
 app.use(express.json());
 
-// rotas
-app.use('/api/products', productRoutes);
+app.use('/api', routes);
 
 export default app;
