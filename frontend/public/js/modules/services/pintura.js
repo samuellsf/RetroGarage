@@ -174,7 +174,7 @@ const todosEstilos = [
         categoria: "Candy",
         spec: "Pigmentação Especial",
         comentario: "Visual sofisticado e curvas acentuadas pelo acabamento candy premium.",
-        imagem: "/assets/img/pintura/candy/Porsche356 Speedster(1956) - VermelhoRubi Candy.png"
+        imagem: "/assets/img/pintura/candy/Porsche356 Speedster(1956)-VermelhoRubiCandy.png"
     },
     {
         id: 11,
@@ -1202,19 +1202,32 @@ const filtros = document.querySelectorAll('.filter-btn');
 function criarCard(estilo) {
     const card = document.createElement('div');
     card.className = 'pintura-card';
+
     card.innerHTML = `
         <img src="${estilo.imagem}" alt="${estilo.nome}" loading="lazy">
-        <h3 style="color: var(--gold); margin-top: 15px;">${estilo.nome}</h3>
-        <p style="font-size: 0.8rem; color: #aaa; min-height: 2.5rem;">${estilo.spec}</p>
-        <hr style="border: 0.5px solid #333; margin: 10px 0;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.7rem; background: #333; padding: 3px 8px; border-radius: 10px; text-transform: uppercase;">${estilo.categoria}</span>
-            <a href="https://wa.me/5561900000000?text=Olá! Tenho interesse no estilo #${estilo.id}" target="_blank" style="color: #25d366; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a>
-        </div>
+
+        <h3 style="color: var(--gold); margin-top: 15px;">
+            ${estilo.nome}
+        </h3>
+
+        <p><strong>Modelo:</strong> ${estilo.modelo}</p>
+
+        <p><strong>Ano:</strong> ${estilo.ano}</p>
+
+        <p><strong>Cor:</strong> ${estilo.cor}</p>
+
+        <p><strong>Categoria:</strong> ${estilo.categoria}</p>
+
+        <p><strong>Especificação:</strong> ${estilo.spec}</p>
+
+        <p style="font-size: 0.8rem; color: #aaa;">
+            ${estilo.comentario}
+            
+      <hr style="border: 0.5px solid #333; margin: 10px 0;"> <div style="display: flex; justify-content: space-between; align-items: center;"> <span style="font-size: 0.7rem; background: #333; padding: 3px 8px; border-radius: 10px; text-transform: uppercase;">${estilo.categoria}</span> <a href="https://wa.me/5561900000000?text=Olá! Tenho interesse no estilo #${estilo.id}" target="_blank" style="color: #25d366; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a> </div>
     `;
+
     return card;
 }
-
 function carregarLote() {
     const inicio = batchAtual * itensPorBatch;
     const fim = inicio + itensPorBatch;
