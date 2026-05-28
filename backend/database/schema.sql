@@ -1,11 +1,21 @@
 CREATE DATABASE IF NOT EXISTS retrogarage;
 USE retrogarage;
 
+-- ==================================
+-- TABELA DE CATEGORIAS
+-- Responsavel por separar:
+-- Carros, Motos, Pecas e Pinturas
+-- ==================================
 
 CREATE TABLE  categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL UNIQUE
 );
+-- =======================================
+-- TABELA DE PRODUTOS
+-- Mantem cadastro de todos os produtos
+-- Sejam carros, motos, pecas ou pinturas
+-- =======================================
 
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,

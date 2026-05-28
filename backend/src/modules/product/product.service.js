@@ -12,6 +12,11 @@ export function getProdutsByCategory(id) {
   return model.findByCategory(id);
 };
 
+
+/**
+ * params: name, description, price, stock, image(caminho da imagem), category_id 
+ * Seguir essa ordem!!
+ */
 export function createProduct(data) {
   return model.create(data);
 };
