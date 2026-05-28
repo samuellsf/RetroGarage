@@ -18,3 +18,24 @@ export async function findByCategory(categoryId) {
   );
   return rows;
 };
+
+export async function create(product) {
+  const { name, description, price, stock, image, category_id } = product
+
+  const [result] = await db.query(
+    `INSERT INTO products
+    (name, description, price, stock, image, category_id)
+    VALUES (?, ?, ?, ?, ?, ?)`,
+    [name, description, price, stock, image, category_id]
+  );
+  return result;
+};
+
+export async function remove(id) {
+  cons [result] = await db.query(
+    'DELETE FROM products WHERE id = ?',
+    [id]
+  );
+
+  return result;
+}
