@@ -2,6 +2,8 @@ import db  from '../../config/db.js';
 
 export async function findAll() {
   const [rows] = await db.query('SELECT * FROM products');
+
+  return rows;
 };
 
 export async function findById(id) {
@@ -32,7 +34,7 @@ export async function create(product) {
 };
 
 export async function remove(id) {
-  cons [result] = await db.query(
+  const [result] = await db.query(
     'DELETE FROM products WHERE id = ?',
     [id]
   );

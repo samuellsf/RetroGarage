@@ -9,7 +9,7 @@ export async function getCart(req, res) {
 export async function addToCart(req, res) {
     const { product_id, quantity } = req.body;
 
-    await service.addToCart(req.user.ic, product_id, quantity);
+    await service.addToCart(req.user.id, product_id, quantity);
 
     res.status(201).json({
         message: 'Produto Adicionado'

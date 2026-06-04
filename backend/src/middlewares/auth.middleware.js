@@ -16,7 +16,7 @@ export function auth(req, res, next) {
     try {
         const decoded = jwt.verify(
             token,
-            porocess.env.JWT_SECRET
+            process.env.JWT_SECRET
         );
 
         req.user = decoded;
@@ -24,7 +24,7 @@ export function auth(req, res, next) {
         next();
 
     } catch (error ) {
-        return res.status(401 ).json({
+        return res.status(401).json({
             success: false,
             message: 'Token Invalido'
         });

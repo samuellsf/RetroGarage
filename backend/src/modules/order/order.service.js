@@ -1,7 +1,10 @@
 import * as model from './order.model.js';
 
-export function createOrder(userId, total) {
-    return model.create(userId, total);
+export async function createOrder(userId, total) {
+
+    const result = await model.create(userId, total);
+
+    return result.insertId;
 }
 
 export function getOrders() {

@@ -1,11 +1,14 @@
 import * as service from './order.service.js';
 
 export async function createOrder(req, res) {
-    const { total } = req.body;
 
-    const order = await service.createOrder(req.user.id, total);
+    const orderId = await service.createOrder(req.user.id, req.body.total);
 
-    res.status(201).json(order);
+    res.status(201).json({
+        success: true,
+        message: "Pedido criado com sucesso",
+        orderId
+    });
 }
 
 export async function getOrders(req, res) {
