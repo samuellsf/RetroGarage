@@ -5,9 +5,10 @@ import * as model from'./auth.model.js';
 
 
 export async function register(data) {
+    console.log('Service:', data)
     const hash = await bcrypt.hash(data.password, 10);
 
-    return model.createUser(data.nome, data.email, hash);
+    return model.createUser(data.name, data.email, hash);
 }
 
 export async function login(email, password) {
@@ -24,9 +25,14 @@ export async function login(email, password) {
     }
 
     const token = jwt.sign(
-        { id: user.id },
+        {
+            id: user.id,
+            email: user.email
+        },
         process.env.JWT_SECRET,
-        { expiresIn: '7d' }
+        {
+            expiresIn: '7d'
+        }
     );
 
     return token;

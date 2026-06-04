@@ -1,4 +1,3 @@
-import { use } from 'react';
 import * as model from './cart.model.js';
 
 export function getCart(userId) {

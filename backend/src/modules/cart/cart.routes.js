@@ -1,5 +1,5 @@
 import express from 'express';
-
+import { auth } from '../../middlewares/auth.middleware.js';
 import{
     getCart,
     addToCart,
@@ -8,8 +8,8 @@ import{
 
 const router = express.Router();
 
-router.get('/', getCart);
-router.post('/', addToCart);
-router.delete('/:id', removeFromCart);
+router.get('/', auth, getCart);
+router.post('/', auth, addToCart);
+router.delete('/:id', auth, removeFromCart);
 
 export default router;

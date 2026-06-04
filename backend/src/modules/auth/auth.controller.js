@@ -1,6 +1,7 @@
 import * as service from './auth.service.js';
 
 export async function register(req, res) {
+
     await service.register(req.body);
 
     res.status(201).json({

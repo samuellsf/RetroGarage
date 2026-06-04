@@ -1,7 +1,7 @@
-import * as service from './cart.service';
+import * as service from './cart.service.js';
 
 export async function getCart(req, res) {
-    const cart = await service.getCart(1);
+    const cart = await service.getCart(req.user.id);
 
     res.json(cart);
 }
@@ -9,7 +9,7 @@ export async function getCart(req, res) {
 export async function addToCart(req, res) {
     const { product_id, quantity } = req.body;
 
-    await service.addToCart(1, product_id, quantity);
+    await service.addToCart(req.user.ic, product_id, quantity);
 
     res.status(201).json({
         message: 'Produto Adicionado'

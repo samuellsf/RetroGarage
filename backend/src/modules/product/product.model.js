@@ -1,6 +1,6 @@
 import db  from '../../config/db.js';
 
-export async function findaAll() {
+export async function findAll() {
   const [rows] = await db.query('SELECT * FROM products');
 };
 

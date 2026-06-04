@@ -1,6 +1,7 @@
 import db from '../../config/db.js';
 
 export async function createUser(name, email, password) {
+    console.log(name,email, password)
     const [result] = await db.query(
         'INSERT INTO users(name, email, password) VALUES (?, ?, ?)',
         [name, email, password]
