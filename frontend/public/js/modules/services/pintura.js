@@ -185,7 +185,7 @@ const todosEstilos = [
         categoria: "Candy",
         spec: "Brilho Profundo",
         comentario: "Uma releitura moderna da cor mais tradicional da marca britânica.",
-        imagem: "/assets/img/pintura/candy/Jaguar E-Type (1961) - Verde Britânico Candy.png"
+        imagem: "/assets/img/pintura/candy/Jaguar E-Type (1961) – Verde Britânico.webp"
     },
     {
         id: 12,
@@ -196,7 +196,7 @@ const todosEstilos = [
         categoria: "Candy",
         spec: "Acabamento Premium",
         comentario: "Modelo Split Window com pintura prata reflexiva e translúcida.",
-        imagem: "assets/images/corvette-63.jpg"
+        imagem: "/assets/img/pintura/candy/Chevrolet Corvette C2 Split Window (1963).jpg"
     },
     {
         id: 13,
