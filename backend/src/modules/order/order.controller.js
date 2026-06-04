@@ -1,24 +1,45 @@
 import * as service from './order.service.js';
 
-export async function createOrder(req, res) {
+export async function createOrder(req, res, next) {
+    try {
+        const orderId = await service.createOrder(req.user.id, req.body.total);
 
-    const orderId = await service.createOrder(req.user.id, req.body.total);
+        res.status(201).json({
+            success: true,
+            message: "Pedido criado com sucesso",
+            orderId
+        });
 
-    res.status(201).json({
-        success: true,
-        message: "Pedido criado com sucesso",
-        orderId
-    });
-}
+    } catch (error) {
 
-export async function getOrders(req, res) {
-    const orders = await service.getOrders();
+        next(error);
 
-    res.json(orders);
-}
+    }
+};
 
-export async function getOrderById(req, res) {
-    const order = await service.getOrderById(req.params.id);
+export async function getOrders(req, res, next) {
+    try {
 
-    res.json(order);
-}
+        const orders = await service.getOrders();
+
+        res.json(orders);
+
+    } catch (error) {
+
+        next(error);
+    
+    }
+};
+
+export async function getOrderById(req, res, next) {
+    try {
+
+        const order = await service.getOrderById(req.params.id);
+
+        res.json(order);
+    } catch (error) {
+
+        next(error);
+
+    }
+};

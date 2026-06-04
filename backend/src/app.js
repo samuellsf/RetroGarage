@@ -3,7 +3,7 @@ import cors from 'cors';
 import { notFound } from './middlewares/notFound.middleware.js';
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
 import routes from './routes/index.js';
-
+import logger from './middlewares/logger.middleware.js';
 
 const app = express();
 
@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
         message: "RetroGarage API"
     });
 });
+
+app.use(logger)
 
 app.use('/api', routes);
 
