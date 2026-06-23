@@ -1,0 +1,230 @@
+/* frontend/public/css/pages/carrinho.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #212529;
+    border-bottom: 2px solid #deb887; /* Detalhe retrô em dourado/madeira */
+    padding-bottom: 10px;
+}
+
+/* Container que joga os itens pra esquerda e o resumo pra direita */
+.cart-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-items {
+    flex: 2;
+    min-width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-summary {
+    flex: 1;
+    min-width: 280px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+.cart-summary h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #343a40;
+}
+
+.summary-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #495057;
+}
+
+.summary-details .total {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #212529;
+}
+
+.free-shipping {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Botões */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.btn-success {
+    background-color: #198754;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #157347;
+}
+
+.btn-link {
+    background: transparent;
+    color: #0d6efd;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+/* --- ESTILIZAÇÃO DOS ITENS DO CARRINHO --- */
+
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-cart p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+    gap: 20px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* Tamanho fixo para as fotos dos carros ou peças */
+.cart-item-img {
+    width: 90px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #f1f3f5;
+    border: 1px solid #e9ecef;
+}
+
+.cart-item-info {
+    flex: 2;
+    min-width: 150px;
+}
+
+.cart-item-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #212529;
+}
+
+.unit-price {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Controles de + e - */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.btn-qty {
+    background: #f8f9fa;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-qty:hover {
+    background: #e2e6ea;
+}
+
+.qty-value {
+    padding: 0 12px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Botão de Remover Item */
+.btn-remove {
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-remove:hover {
+    text-decoration: underline;
+}
+
+/* Preço Total da Linha */
+.cart-item-total {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #212529;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Responsividade Básica */
+@media (max-width: 576px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    .cart-item-total {
+        text-align: center;
+    }
+}

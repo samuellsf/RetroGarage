@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroGarage | Seu Carrinho</title>
+    
+    <link rel="stylesheet" href="./css/base/style.css">
+
+    <link rel="stylesheet" href="./css/pages/carrinho.css">
+</head> <body>
+
+    <header id="navbar-container"></header>
+
+    <main class="container">
+        <h1 class="my-4">Seu Carrinho de Compras</h1>
+
+        <div class="cart-wrapper">
+            <section class="cart-items" id="cart-items-container">
+                </section>
+
+            <section class="cart-summary">
+                <h2>Resumo do Pedido</h2>
+                <div class="summary-details">
+                    <p><span>Subtotal:</span> <span id="cart-subtotal">R$ 0,00</span></p>
+                    <p><span>Frete:</span> <span class="free-shipping">Grátis</span></p>
+                    <hr>
+                    <p class="total"><span>Total:</span> <span id="cart-total">R$ 0,00</span></p>
+                </div>
+                <button id="btn-checkout" class="btn btn-success">Finalizar Compra</button>
+                <a href="./carros.html" class="btn btn-link">Continuar Comprando</a>
+                
+
+            </section>
+        </div>
+    </main>
+<script type="module" src="./js/modules/pages/index.js"></script>
+</body>
+</html>
